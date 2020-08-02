@@ -17,7 +17,7 @@ public class MainPageStep extends BaseStep<MainPageStep> {
         this.page = new HabrMainPage(driver);
     }
 
-    @Step("")
+    @Step("Сверяем Header-text страницы с ожидаемым")
     public MainPageStep checkHeaderTextOnPage( String titleText ) {
         Assert.assertEquals(page.getTitle().getText(), titleText, "Header-текст не сходятся");
         return this;
@@ -29,33 +29,35 @@ public class MainPageStep extends BaseStep<MainPageStep> {
         return this;
     }
 
-    @Step("")
+    @Step("Сверяем Title-text страницы с ожидаемым")
     public MainPageStep checkTitle( String title ) {
         Assert.assertEquals(driver.getTitle(), title, "Тайтл страницы не сходятся");
         return this;
     }
 
-    @Step("")
+    @Step("Сверяем URL-страницы с ожидаемым")
     public MainPageStep checkURL( String url ) {
         Assert.assertEquals(driver.getCurrentUrl(), url, "URL страницы отличается от ожидаемого");
         return this;
     }
 
-    @Step("")
+    @Step("Взаимодействие с кнопкой в Top-menu по тексту")
     public MainPageStep useButtonOnTopMenu( String buttonName ) {
         ElementUseUtil.useElement(driver, page.getButtonFromNavigationMenu(buttonName));
         return this;
     }
 
-    @Step("")
+    @Step("Взаимодействие с кнопкой в Tabs-menu ")
     public MainPageStep useButtonOnTabsMenu( String buttonName ) {
         ElementUseUtil.useElement(driver, page.getButtonFromTabsMenu(buttonName));
         return this;
     }
 
-    @Step("")
+    @Step("Взаимодействие с центральной поисковой строкой")
     public MainPageStep useCenterSearchField( String textMessage ) {
         ElementUseUtil.sendDataInElement(driver, page.getCenterSearchField(), textMessage);
+        //  временное решение, так как результат поиска обновляется хаотично от 1 до 5 секунд
+        // Можно поставить проверку на изменение списка...
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
@@ -65,7 +67,7 @@ public class MainPageStep extends BaseStep<MainPageStep> {
         return this;
     }
 
-    @Step("")
+    @Step("Проверка названия поисковой строки")
     public MainPageStep checkNameSearchField( String nameField ) {
         Assert.assertEquals(page
                 .getCenterSearchField()
@@ -73,44 +75,43 @@ public class MainPageStep extends BaseStep<MainPageStep> {
         return this;
     }
 
-    @Step("")
+    @Step("Проверка содержания запроса в результатах поиска")
     public MainPageStep checkSearchResult( String textResult ) {
         String result = page.getListCompanies().get(0).getText();
         Assert.assertEquals(true, result
                 .contains(textResult), "Результат поиска не содержит запрос");
-
         return this;
     }
 
-    @Step("")
+    @Step("Проверяем количество компаний в рейтинге")
     public MainPageStep checkCompanyRatingCount( int count ) {
         Assert.assertEquals(page
                 .getListRatingCompanies().size(), count, "Количество компаний в блоке не сходится");
         return this;
     }
 
-    @Step("")
+    @Step("Переход на Main страницу через выпадающее меню")
     public MainPageStep goToMainPageFromDropdownMenu( String descriptionText ) {
         ElementUseUtil.useElement(driver, page.getDropDown());
         ElementUseUtil.useElement(driver, page.getButtonFromDropdownMenu(descriptionText));
         return this;
     }
 
-    @Step("")
+    @Step("Переход на QnA страницу через выпадающее меню")
     public QnAPageStep goToQnAPageFromDropdownMenu( String descriptionText ) {
         ElementUseUtil.useElement(driver, page.getDropDown());
         ElementUseUtil.useElement(driver, page.getButtonFromDropdownMenu(descriptionText));
         return new QnAPageStep(driver);
     }
 
-    @Step("")
+    @Step("Переход на Freelance страницу через выпадающее меню")
     public FreelancePageStep goToFreelancePageFromDropdownMenu( String descriptionText ) {
         ElementUseUtil.useElement(driver, page.getDropDown());
         ElementUseUtil.useElement(driver, page.getButtonFromDropdownMenu(descriptionText));
         return new FreelancePageStep(driver);
     }
 
-    @Step("")
+    @Step("Переход на Career страницу через выпадающее меню")
     public CareerPageStep goToCareerPageFromDropdownMenu( String descriptionText ) {
         ElementUseUtil.useElement(driver, page.getDropDown());
         ElementUseUtil.useElement(driver, page.getButtonFromDropdownMenu(descriptionText));

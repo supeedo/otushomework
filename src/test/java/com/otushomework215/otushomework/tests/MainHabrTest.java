@@ -22,14 +22,14 @@ public class MainHabrTest extends BaseTest {
 
     @Feature("Главная страница")
     @Test(description = "Проверка открытия главной страницы")
-    public void test1() {
+    public void checkMainPage() {
         mainPageStep
                 .checkHeaderTextOnPage("Все потоки");
     }
 
     @Feature("Главная страница")
     @Test(description = "Проверка отрабатывания кнопок верхнего навигационного меню")
-    public void test2() {
+    public void checkButtonOnTopMenu() {
         mainPageStep
                 .checkHeaderTextOnPage("Все потоки")
                 .useButtonOnTopMenu("Разработка")
@@ -49,7 +49,7 @@ public class MainHabrTest extends BaseTest {
 
     @Feature("Главная страница")
     @Test(description = "Проверка соответствия URL, при взаимодействии с кнопками центрального меню")
-    public void test3() {
+    public void checkUrlOnUseTabsMenu() {
         mainPageStep
                 .useButtonOnTabsMenu("Новости")
                 .checkURL("https://habr.com/ru/news/")
@@ -64,7 +64,7 @@ public class MainHabrTest extends BaseTest {
     @Feature("Главная страница")
     @Test(description = "Проверка соответствия Title, при взаимодействии с кнопками центрального меню" +
             "")
-    public void test4() {
+    public void checkTitleOnUseTabsMenu() {
         mainPageStep
                 .useButtonOnTabsMenu("Новости")
                 .checkTitle("ИТ Новости на Хабре: главные новости технологий")
@@ -78,7 +78,7 @@ public class MainHabrTest extends BaseTest {
 
     @Feature("Главная страница")
     @Test(description = "Проверка отрабатывания поиска по компаниям")
-    public void test5() {
+    public void CHeckCompanySearch() {
         mainPageStep
                 .useButtonOnTabsMenu("Компании")
                 .checkNameSearchField("Найти компанию")
@@ -87,7 +87,7 @@ public class MainHabrTest extends BaseTest {
 
     @Feature("Главная страница")
     @Test(description = "Проверка отрабатывания поиска по авторам")
-    public void test6() {
+    public void checkSearchAuthors() {
         mainPageStep
                 .useButtonOnTabsMenu("Авторы")
                 .checkNameSearchField("Найти пользователя")
@@ -96,7 +96,7 @@ public class MainHabrTest extends BaseTest {
 
     @Feature("Главная страница")
     @Test(description = "")
-    public void test7() {
+    public void checkSearchHubs() {
         mainPageStep
                 .useButtonOnTabsMenu("Хабы")
                 .checkNameSearchField("Найти хаб")
@@ -105,14 +105,14 @@ public class MainHabrTest extends BaseTest {
 
     @Feature("Главная страница")
     @Test(description = "")
-    public void test8() {
+    public void checkCountOfCompanyRating() {
         mainPageStep
                 .checkCompanyRatingCount(10);
     }
 
     @Feature("Главная страница")
     @Test(description = "")
-    public void test9() {
+    public void checkTransitionOnMainPage() {
         mainPageStep
                 .goToMainPageFromDropdownMenu("Сообщество IT-специалистов")
                 .checkHeaderTextOnPage("Все потоки");
@@ -120,7 +120,7 @@ public class MainHabrTest extends BaseTest {
 
     @Feature("Главная страница")
     @Test(description = "")
-    public void test10() {
+    public void checkTransitionOnQnAPage() {
         mainPageStep
                 .goToQnAPageFromDropdownMenu("любые вопросы")
                 .checkTitle("Интересные вопросы — Хабр Q&A");
@@ -128,7 +128,7 @@ public class MainHabrTest extends BaseTest {
 
     @Feature("Главная страница")
     @Test(description = "")
-    public void test11() {
+    public void checkTransitionOnFreelancePage() {
         mainPageStep
                 .goToFreelancePageFromDropdownMenu("Удаленная работа для IT-специалистов")
                 .checkTitle("Хабр Фриланс");
@@ -136,7 +136,7 @@ public class MainHabrTest extends BaseTest {
 
     @Feature("Главная страница")
     @Test(description = "")
-    public void test12() {
+    public void checkTransitionOnCareerPage() {
         mainPageStep
                 .goToCareerPageFromDropdownMenu("Профессиональное развитие")
                 .checkTitle("Работа в IT-индустрии — Хабр Карьера");
