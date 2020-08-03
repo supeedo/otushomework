@@ -2,19 +2,21 @@ package com.otushomework215.otushomework.steps;
 
 import com.otushomework215.otushomework.base.BaseStep;
 import com.otushomework215.otushomework.pages.FreelancePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class FreelancePageStep extends BaseStep<FreelancePageStep> {
 
-    WebDriver driver;
-    FreelancePage page;
+    private WebDriver driver;
+    private FreelancePage page;
 
     public FreelancePageStep( WebDriver driver ) {
         this.driver = driver;
         this.page = new FreelancePage(driver);
     }
 
+    @Step("Сверяем Title-text страницы с ожидаемым")
     public FreelancePageStep checkTitle( String title ) {
         Assert.assertEquals(driver.getTitle(), title, "Тайтл страницы не сходятся");
         return this;

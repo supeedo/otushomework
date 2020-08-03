@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 @Owner("Yakovlev Sergey")
 public class MainHabrTest extends BaseTest {
 
-    MainPageStep mainPageStep;
+    private MainPageStep mainPageStep;
 
     @BeforeMethod
     public void setUpMethod() {

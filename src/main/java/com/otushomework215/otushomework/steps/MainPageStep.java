@@ -9,8 +9,8 @@ import org.testng.Assert;
 
 public class MainPageStep extends BaseStep<MainPageStep> {
 
-    WebDriver driver;
-    HabrMainPage page;
+    private WebDriver driver;
+    private HabrMainPage page;
 
     public MainPageStep( WebDriver driver ) {
         this.driver = driver;
@@ -59,7 +59,7 @@ public class MainPageStep extends BaseStep<MainPageStep> {
         //  временное решение, так как результат поиска обновляется хаотично от 1 до 5 секунд
         // Можно поставить проверку на изменение списка...
         try {
-            Thread.sleep(500);
+            Thread.sleep(600);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
