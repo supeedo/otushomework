@@ -8,11 +8,18 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+
 public class WebDriverFactory {
+
+    public ChromeDriver get() {
+        WebDriverManager.chromedriver().setup();
+        return new ChromeDriver();
+    }
 
     public WebDriver createNewDriver( String browserName ) {
         return createNewDriver(browserName, new DesiredCapabilities());
     }
+
 
     public WebDriver createNewDriver( String browserName, DesiredCapabilities options ) {
         browserName = browserName.toLowerCase();
