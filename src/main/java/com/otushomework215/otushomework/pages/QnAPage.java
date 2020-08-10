@@ -7,8 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 public class QnAPage extends BasePage {
     private WebDriver driver;
 
+
+    //---------------------------------
+
     public QnAPage( WebDriver driver ) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
+
 }
