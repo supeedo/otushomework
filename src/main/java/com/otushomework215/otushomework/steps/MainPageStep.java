@@ -1,5 +1,8 @@
 package com.otushomework215.otushomework.steps;
 
+import com.otushomework215.otushomework.steps.career.CareerPageStep;
+import com.otushomework215.otushomework.steps.freelance.LandingFreelancePageStep;
+import com.otushomework215.otushomework.steps.qna.QnAPageStep;
 import com.otushomework215.otushomework.utils.ElementUseUtil;
 import com.otushomework215.otushomework.base.BaseStep;
 import com.otushomework215.otushomework.pages.HabrMainPage;
@@ -105,10 +108,10 @@ public class MainPageStep extends BaseStep<MainPageStep> {
     }
 
     @Step("Переход на Freelance страницу через выпадающее меню")
-    public FreelancePageStep goToFreelancePageFromDropdownMenu( String descriptionText ) {
+    public LandingFreelancePageStep goToFreelancePageFromDropdownMenu( String descriptionText ) {
         ElementUseUtil.useElement(driver, page.getDropDown());
         ElementUseUtil.useElement(driver, page.getButtonFromDropdownMenu(descriptionText));
-        return new FreelancePageStep(driver);
+        return new LandingFreelancePageStep(driver);
     }
 
     @Step("Переход на Career страницу через выпадающее меню")

@@ -1,4 +1,4 @@
-package com.otushomework215.otushomework.steps;
+package com.otushomework215.otushomework.steps.qna;
 
 import com.otushomework215.otushomework.base.BaseStep;
 import com.otushomework215.otushomework.pages.QnAPage;

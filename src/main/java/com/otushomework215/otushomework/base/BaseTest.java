@@ -5,15 +5,17 @@ import com.otushomework215.otushomework.configuration.WebDriverFactory;
 import com.otushomework215.otushomework.configuration.Config;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
+
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
-
 import java.util.concurrent.TimeUnit;
+
 
 public class BaseTest {
 
-    WebDriverFactory driverFactory = new WebDriverFactory();
+    protected WebDriverFactory driverFactory = new WebDriverFactory();
     public WebDriver driver;
     protected Config cfg = ConfigFactory.create(Config.class);
 
@@ -40,7 +42,7 @@ public class BaseTest {
         driver.manage().deleteAllCookies();
     }
 
-    //  @AfterTest
+    @AfterTest
     protected void setDown() {
         if (driver != null) {
             driver.quit();

@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
-@Epic("Тест сайта HABR.COM")
+@Epic("Тест сайта HABR.COM/RU")
 @Owner("Yakovlev Sergey")
 public class MainHabrTest extends BaseTest {
 
