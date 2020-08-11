@@ -23,9 +23,9 @@ public class LandingFreelancePageStep extends BaseStep<LandingFreelancePageStep>
         return this;
     }
 
-    @Step("Взаимодействие с кнопкой в Top-menu по тексту")
-    public LandingFreelancePageStep useButtonOnCategoryMenuByText( String buttonName ) {
+    @Step("Взаимодействие с кнопкой в Category-menu по тексту")
+    public FreelancePageStep useButtonOnCategoryMenuByText( String buttonName ) {
         ElementUseUtil.useElement(driver, page.getButtonFromCategoryMenu(buttonName));
-        return this;
+        return new FreelancePageStep(driver);
     }
 }
